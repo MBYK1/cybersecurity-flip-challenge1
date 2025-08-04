@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -81,24 +81,6 @@
             text-align: center;
         }
 
-        .start-page input {
-            font-size: 20px;
-            padding: 10px;
-            margin: 10px 0;
-            border: 2px solid #61dafb;
-            border-radius: 5px;
-            color: #333;
-        }
-
-        .start-page button {
-            background-color: #61dafb;
-            font-size: 20px;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            color: white;
-        }
-
         .start-page h1 {
             font-size: 36px;
             margin-bottom: 20px;
@@ -118,7 +100,6 @@
     <!-- Start Page -->
     <div class="start-page" id="start-page">
         <h1>Welcome to the Cybersecurity Flip Challenge!</h1>
-        <input type="text" id="name" placeholder="Enter your name" />
         <button onclick="startQuiz()">Start Quiz</button>
     </div>
 
@@ -245,17 +226,10 @@
         let screenFlipping = true;
         let timerInterval;
         let countdown = 5;
-        let userName = '';
         let correctAnswers = 0;
 
         // Function to start the quiz
         function startQuiz() {
-            userName = document.getElementById('name').value.trim();
-            if (!userName) {
-                alert("Please enter your name!");
-                return;
-            }
-
             // Hide the start page and show the quiz page
             document.getElementById('start-page').style.display = 'none';
             document.getElementById('quiz-page').style.display = 'block';
@@ -325,36 +299,4 @@
             document.getElementById('timer').textContent = countdown;
             timerInterval = setInterval(function() {
                 countdown--;
-                document.getElementById('timer').textContent = countdown;
-                if (countdown === 0) {
-                    clearInterval(timerInterval); // Stop the countdown timer
-                    alert("Time's up! Incorrect answer.");
-                    currentQuestionIndex++;
-                    if (currentQuestionIndex >= questions.length) {
-                        showScore();
-                    } else {
-                        updateQuestion();
-                        startCountdown(); // Restart the countdown with the next question
-                    }
-                }
-            }, 1000); // Countdown every second
-        }
-
-        // Show the score page
-        function showScore() {
-            document.getElementById('quiz-page').style.display = 'none';
-            document.getElementById('score-page').style.display = 'block';
-            document.getElementById('score-text').textContent = `You answered ${correctAnswers} out of ${questions.length} questions correctly!`;
-        }
-
-        // Restart the quiz
-        function restartQuiz() {
-            correctAnswers = 0;
-            currentQuestionIndex = 0;
-            document.getElementById('score-page').style.display = 'none';
-            document.getElementById('start-page').style.display = 'block';
-        }
-
-    </script>
-</body>
-</html>
+                document.getElement
