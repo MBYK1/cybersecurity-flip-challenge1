@@ -17,7 +17,7 @@
             color: white;
             overflow: hidden;
             flex-direction: column;
-            transition: transform 1s; /* Smooth transition for the flip */
+            transition: transform 1s ease; /* Smooth transition for the flip */
         }
 
         /* Screen flip animation */
@@ -246,10 +246,17 @@
             // Start the quiz
             updateQuestion();
             startCountdown();
+            screenFlipping = true;
+            flipScreen();  // Start the flip animation
         }
 
         function flipScreen() {
-            document.body.classList.toggle("flip", screenFlipping);
+            // Toggle the screen flip effect
+            if (screenFlipping) {
+                document.body.classList.add("flip");
+            } else {
+                document.body.classList.remove("flip");
+            }
         }
 
         function checkAnswer(selectedAnswer) {
@@ -261,7 +268,7 @@
             if (selectedAnswer === correctAnswer) {
                 alert("Correct! Screen stops flipping.");
                 screenFlipping = false;
-                flipScreen();
+                flipScreen(); // Stop the flip animation
             } else {
                 alert("Incorrect. Keep trying!");
                 currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
@@ -304,3 +311,4 @@
     </script>
 </body>
 </html>
+
